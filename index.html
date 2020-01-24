@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pomodoro - Übersicht</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="js/pomo_module.js"></script>
+        <script src="js/control.js"></script>
+    </head>
+    <body>
+        <!-- GET DATA:https://sheets.googleapis.com/v4/spreadsheets/1K1dWeDZHljYJsGbN9EM89S88UFNY_4TKs-if8WVaRLM/values/Sheet1!A1:D5?key=AIzaSyBd-CbMdBKKyU8nj5zDgzBroPj97mh6QiQ -->
+        <div class="container">
+            <h1 class="title">IModoro</h1>
+            <a class="button button--gruen" href="neu.html">Neu</a>
+            <a class="button button--blau" href="statistik.html">Statistik</a>
+
+            <div class="liste" id="pomodoro_liste">
+                <div class="liste__laden">
+                    <div class="liste__eintrag">
+                        <div class="liste__titel">Laden....</div>
+                    </div>
+                </div>
+                <span id="error"></span>
+            </div>
+            <br><br><br>
+            <a href="https://docs.google.com/spreadsheets/d/1K1dWeDZHljYJsGbN9EM89S88UFNY_4TKs-if8WVaRLM/edit?usp=sharing" class="button" target="_blank">Google Sheet</a>
+        </div>
+    </body>
+</html>

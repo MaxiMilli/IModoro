@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pomodoro - Neuer Pomodoro</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="js/easytimer.js"></script>
+        <script src="js/pomo_module.js"></script>
+        <script src="js/control.js"></script>
+    </head>
+    <body>
+        <!-- GET DATA:https://sheets.googleapis.com/v4/spreadsheets/1K1dWeDZHljYJsGbN9EM89S88UFNY_4TKs-if8WVaRLM/values/Sheet1!A1:D5?key=AIzaSyBd-CbMdBKKyU8nj5zDgzBroPj97mh6QiQ -->
+        <div class="container">
+            <h1 class="title">IModoro</h1>
+            <a class="button" href="index.html">Zurück</a>
+
+            <div class="formular">
+                <form action="#" method="GET" id="pomodoro_neu_formular">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="uebung_name" placeholder="while- und for-Schleifen"><br>
+
+                    <label for="project">Projekt</label>
+                    <input type="text" id="project" name="uebung_project" placeholder="Prüfung IM"><br>
+
+                    <label for="bemerkung">Bemerkung</label>
+                    <input type="text" id="bemerkung" name="uebung_bemerkung" placeholder="Im Café Merz"><br>
+
+                    <button type="submit" class="button button--gruen">Pomodoro starten</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
