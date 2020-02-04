@@ -1,0 +1,54 @@
+
+/* Title */
+
+h1 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h6 {
+
+}
+
+
+/* Texte */
+
+a,
+a:hover,
+a:visited,
+a:link,
+a:active {
+    text-decoration: none;
+}
+
+p {
+
+}
+
+
+/* Boxen */
+
+body {
+    background-color: #2F384B;
+    color: #E3E0DB;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+section {
+
+}
+
+form {
+
+}
+
+article {
+
+}
