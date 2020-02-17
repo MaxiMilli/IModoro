@@ -31,10 +31,10 @@ function erstelleListe() {
 }
 
 function neuerPomodoroStarten(paramEvent) {
-    // hindere JavaScript vor allen standardmässigen Befehlen
+    // Hindere JavaScript vor allen standardmässigen Befehlen
     paramEvent.preventDefault()
 
-    // verändere die Ansicht der Sections
+    // Verändere die Ansicht der Sections
     document.querySelector('#pomodoroTimer').style.display = 'block';
     document.querySelector('#pomodoroNeu').style.display = 'none';
 
@@ -44,7 +44,7 @@ function neuerPomodoroStarten(paramEvent) {
 
 function erstelleListenEintrag(paraPomodoroObjekt) {
 
-    // selektiere das Listenfeld
+    // Selektiere das Listenfeld
     let liste = document.querySelector("#pomodoroListe");
     
     // Erstelle einen neuen Artikel (ein Artikel ist bei uns einen Pomodoro in der Liste)
@@ -52,21 +52,21 @@ function erstelleListenEintrag(paraPomodoroObjekt) {
     
     // Erstelle den Titel mit einem 'h4'-Element
     let eintragTitel = document.createElement('h4');
-    eintragTitel.innerText = paraPomodoroObjekt.name; // Gib dem Titel den Titel-Text, welcerh übergeben wurde
-    eintrag.appendChild(eintragTitel); // füge den Titel zum Artikel hinzu
+    eintragTitel.innerText = paraPomodoroObjekt.name; // Gib dem Titel den Titel-Text, welcher übergeben wurde
+    eintrag.appendChild(eintragTitel); // Füge den Titel zum Artikel hinzu
     
     // Erstelle den Untertitel als Paragraph
     let eintragBemerkung = document.createElement('p');
     let eintragBemerkungText = paraPomodoroObjekt.beschr; // Text des Paragraphen
 
-    // füge einen Text hinten an, je nach dem ob der Pomodor fertig gemacht wurde
+    // Füge einen Text hinten an, je nach dem ob der Pomodor fertig gemacht wurde
     if (paraPomodoroObjekt.fertig) {
         eintragBemerkungText += " | fertig";
     } else {
         eintragBemerkungText += " | abgebrochen";
     }
     eintragBemerkung.innerText = eintragBemerkungText;
-    eintrag.appendChild(eintragBemerkung); // füge die Bemerkung zum Artikel hinzu
+    eintrag.appendChild(eintragBemerkung); // Füge die Bemerkung zum Artikel hinzu
     
     // Element in der Liste am Schluss einfügen
     liste.appendChild(eintrag); 
@@ -79,11 +79,11 @@ function startePomodoro() {
     timer.on('secondsUpdated', timerTick)
     timer.on('targetAchieved', timerFinish);
 
-    // Hole die Werte aus dem Formular
+    // Hole die Werte aus dem Formular und speichere sie global
     name = document.querySelector('#uebungName').value
     beschreibung = document.querySelector('#uebungBeschreibung').value
 
-    //Abbrechen vorbereiten
+    // Abbrechen vorbereiten
     let abbruchFormular = document.querySelector('#pomodoroAbbruchFormular');
     abbruchFormular.addEventListener('submit', brechePomodoroAb)
 }
@@ -106,10 +106,10 @@ function brechePomodoroAb() {
 }
 
 function timerTick() {
-    // verändere den Zeit-Text
+    // Verändere den Zeit-Text zur aktuellen Zeit
     document.querySelector('.timer__zeit').innerHTML = timer.getTimeValues().minutes + ":" + timer.getTimeValues().seconds;
     
-    // verändere den Balken
+    // Verändere den Balken (im Minutentakt)
     let prozentFortschritt = 100 / 25 * timer.getTimeValues().minutes; // Prozent in Miuten ausrechnen
     prozentFortschritt = 100 - prozentFortschritt; // Prozentzahl umkehren
     document.querySelector('#pomoBalken').style.width = prozentFortschritt + "%"; // Auf Balken anwenden
@@ -123,9 +123,9 @@ function timerFinish() {
     document.querySelector('.timer__zeit').innerHTML = 'Fertig!';
     
     // Player konfigurieren
-    let audioObject = document.querySelector('#audioPlayer');
-    audioObject.play();
-    audioObject.onended = function() {
+    let audioObject = document.querySelector('#audioPlayer'); // Hole den Audio-Tag
+    audioObject.play(); // Starte Sound
+    audioObject.onended = function() { // Füge eine Funktion zu einem Event hinzu
         location.reload();
     };
 }
@@ -146,6 +146,6 @@ function pomodoroEintragen(paramComplete) {
     // Füge den neuen Pomodoro dem localStorage-Array an
     pomodoroSammlung.push(neuerEintragObjekt);
 
-    // speichere das die ganze Sammlung
+    // Speichere das die ganze Sammlung
     localStorage.setItem('pomodoro', JSON.stringify(pomodoroSammlung));
 }
