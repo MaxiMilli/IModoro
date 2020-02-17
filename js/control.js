@@ -39,7 +39,7 @@ function neuerPomodoroStarten(paramEvent) {
     document.querySelector('#pomodoroNeu').style.display = 'none';
 
     // Starte den Pomodoro und führe diese Funktion aus
-    startePomodoro()
+    startePomodoro(25)
 }
 
 function erstelleListenEintrag(paraPomodoroObjekt) {
@@ -72,10 +72,10 @@ function erstelleListenEintrag(paraPomodoroObjekt) {
     liste.appendChild(eintrag); 
 }
 
-function startePomodoro() {
-    // Erstelle einen Timer
+function startePomodoro(paraMin) {
+    // Erstelle einen Timer mit 25 Minuten
     timer = new easytimer.Timer();
-    timer.start({countdown: true, startValues: {seconds: 10, minutes: 0}});
+    timer.start({countdown: true, startValues: {seconds: 0, minutes: paraMin}});
     timer.on('secondsUpdated', timerTick)
     timer.on('targetAchieved', timerFinish);
 
@@ -131,7 +131,7 @@ function timerFinish() {
 }
 
 function pomodoroEintragen(paramComplete) {
-    // Zeit und localStorage in Variablen speichern
+    // Zeit und localStorage-Sammlung in Variablen speichern
     let zeitInSekunden = new Date().getTime();
     let pomodoroSammlung = JSON.parse(localStorage.getItem('pomodoro'));
 
@@ -146,6 +146,6 @@ function pomodoroEintragen(paramComplete) {
     // Füge den neuen Pomodoro dem localStorage-Array an
     pomodoroSammlung.push(neuerEintragObjekt);
 
-    // Speichere das die ganze Sammlung
+    // Speichere das die ganze Sammlung wieder im localStorage
     localStorage.setItem('pomodoro', JSON.stringify(pomodoroSammlung));
 }
